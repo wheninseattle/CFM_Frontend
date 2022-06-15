@@ -2,6 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import { Typography, Grid } from '@mui/material';
 import MascotCard from 'components/MascotCard';
+import FindAFridge from 'components/LandingPage/FindAFridge';
 
 const data = [
   {
@@ -45,6 +46,9 @@ export default function HomePage() {
       <Head>
         <title>Community Fridge Map</title>
       </Head>
+
+      <FindAFridge />
+
       <Grid
         container
         direction="row"
