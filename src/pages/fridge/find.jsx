@@ -5,7 +5,7 @@ import Image from 'next/image';
 import styled from '@emotion/styled';
 import {
   formatDate,
-  getInstaFromUrl,
+  getInstagramHandleFromUrl,
   makeDirectionsUrl,
 } from 'lib/helperFunctions';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
@@ -59,7 +59,7 @@ function FindFridge() {
                     alignItems="center"
                   >
                     <InstagramIcon />
-                    <Typography>{`@${getInstaFromUrl(
+                    <Typography>{`@${getInstagramHandleFromUrl(
                       e.instagram
                     )}`}</Typography>
                   </Stack>

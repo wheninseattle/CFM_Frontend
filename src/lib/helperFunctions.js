@@ -1,4 +1,4 @@
-export function getInstaFromUrl(url) {
+export function getInstagramHandleFromUrl(url) {
   return url.split('').splice(26).slice(0, -1).join('');
 }
 
