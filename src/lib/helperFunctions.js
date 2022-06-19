@@ -11,6 +11,6 @@ export function formatDate(integer) {
   }
 }
 
-export function makeDirectionsUrl(address) {
-  return `https://www.google.com/maps/dir//${address}`;
+export function makeLocationUrl(address) {
+  return encodeURI(`https://www.google.com/maps/place/${address}`);
 }

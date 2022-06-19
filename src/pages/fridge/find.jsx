@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import {
   formatDate,
   getInstagramHandleFromUrl,
-  makeDirectionsUrl,
+  makeLocationUrl,
 } from 'lib/helperFunctions';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -42,7 +42,7 @@ function FindFridge() {
             <Stack direction="row" justifyContent="center" gap={1}>
               <Stack gap={2} sx={{ wordWrap: 'break-word', maxWidth: '250px' }}>
                 <StyledH3>{e.display_name}</StyledH3>
-                <StyledLink href={makeDirectionsUrl(e.address)} target="_blank">
+                <StyledLink href={makeLocationUrl(e.address)} target="_blank">
                   <Stack
                     direction="row"
                     sx={{ color: 'text.secondary' }}
