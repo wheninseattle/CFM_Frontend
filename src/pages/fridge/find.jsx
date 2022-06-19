@@ -81,7 +81,7 @@ function FindFridge() {
                 src={e.profile_image}
                 width="180"
                 height="200"
-                alt="fridge"
+                alt={e.display_name}
               />
             </Stack>
             <Stack
