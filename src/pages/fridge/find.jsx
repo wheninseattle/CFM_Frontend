@@ -13,9 +13,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 function FindFridge() {
+  const findFridgeDataUrl = 'https://mock-fridge.herokuapp.com';
   const [data, setData] = useState(null);
   useEffect(() => {
-    axios.get('https://mock-fridge.herokuapp.com').then((response) => {
+    axios.get(findFridgeDataUrl).then((response) => {
       setData(response.data);
     });
   }, []);
