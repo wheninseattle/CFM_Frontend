@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Stack, Button, Typography, Link, Grid } from '@mui/material';
@@ -125,5 +126,17 @@ function FindFridge() {
     </Grid>
   );
 }
+
+const dataShape = {
+  display_name: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  instagram: PropTypes.string.isRequired,
+  last_edited: PropTypes.string.isRequired,
+  profile_image: PropTypes.string.isRequired,
+};
+
+FindFridge.propTypes = {
+  data: PropTypes.shape(dataShape),
+};
 
 export default FindFridge;
