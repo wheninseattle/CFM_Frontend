@@ -2,13 +2,13 @@ export function getInstagramHandleFromUrl(url) {
   return url.split('').splice(26).slice(0, -1).join('');
 }
 
-export function formatDate(integer) {
-  const str = integer.toString();
-  if (str.length === 5) {
-    return str.slice(0, 1) + '/' + str.slice(1, 3) + '/' + str.slice(3, 5);
-  } else if (str.length === 6) {
-    return str.slice(0, 2) + '/' + str.slice(2, 4) + '/' + str.slice(4, 6);
-  }
+export function formatDate(isoString) {
+  const msSinceEpoch = Date.parse(isoString);
+  return new Date(msSinceEpoch).toLocaleDateString('en-US', {
+    day: '2-digit',
+    month: '2-digit',
+    year: '2-digit',
+  });
 }
 
 export function makeLocationUrl(address) {
