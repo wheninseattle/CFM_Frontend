@@ -12,6 +12,31 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
+const StyledH3 = styled.h3`
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`;
+
+const StyledImage = styled(Image)`
+  border-radius: 5px;
+`;
+
+const StyledTypography = styled(Typography)(
+  ({ theme }) => `
+  color: ${theme.palette.text.secondary};
+`
+);
+const StyledStack = styled(Stack)`
+  flex-direction: row;
+  gap: 4px;
+`;
+
 function FindFridge() {
   const findFridgeDataUrl = 'https://mock-fridge.herokuapp.com';
   const [data, setData] = useState(null);
@@ -43,39 +68,27 @@ function FindFridge() {
               <Stack gap={2} sx={{ wordWrap: 'break-word', maxWidth: '250px' }}>
                 <StyledH3>{e.display_name}</StyledH3>
                 <StyledLink href={makeLocationUrl(e.address)} target="_blank">
-                  <Stack
-                    direction="row"
-                    sx={{ color: 'text.secondary' }}
-                    gap={1}
-                  >
+                  <StyledStack>
                     <LocationOnOutlinedIcon />
-                    <Typography>{e.address.replace(/,/, '.')}</Typography>
-                  </Stack>
+                    <StyledTypography>
+                      {e.address.replace(/,/, '.')}
+                    </StyledTypography>
+                  </StyledStack>
                 </StyledLink>
                 <StyledLink href={e.instagram} target="_blank">
-                  <Stack
-                    direction="row"
-                    sx={{ color: 'text.secondary' }}
-                    gap={1}
-                    alignItems="center"
-                  >
+                  <StyledStack sx={{ alignItems: 'center' }}>
                     <InstagramIcon />
-                    <Typography>{`@${getInstagramHandleFromUrl(
+                    <StyledTypography>{`@${getInstagramHandleFromUrl(
                       e.instagram
-                    )}`}</Typography>
-                  </Stack>
+                    )}`}</StyledTypography>
+                  </StyledStack>
                 </StyledLink>
-                <Stack
-                  direction="row"
-                  sx={{ color: 'text.secondary' }}
-                  gap={1}
-                  alignItems="center"
-                >
+                <StyledStack sx={{ alignItems: 'center' }}>
                   <CalendarMonthOutlinedIcon />
-                  <Typography sx={{ color: 'text.secondary' }}>
+                  <StyledTypography>
                     Last Update: {formatDate(e.last_edited)}
-                  </Typography>
-                </Stack>
+                  </StyledTypography>
+                </StyledStack>
               </Stack>
               <StyledImage
                 src={e.profile_image}
@@ -112,20 +125,5 @@ function FindFridge() {
     </Grid>
   );
 }
-
-const StyledH3 = styled.h3`
-  margin: 0;
-  padding: 0;
-  line-height: normal;
-`;
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-`;
-
-const StyledImage = styled(Image)`
-  border-radius: 5px;
-`;
 
 export default FindFridge;
